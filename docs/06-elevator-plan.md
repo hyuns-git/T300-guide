@@ -6,6 +6,7 @@
 
 - 푸두 T300 제품 소개 자료에는 엘리베이터 제어 모듈과 IoT 연동(엘리베이터, 출입 게이트, 소프트웨어 API)이 언급됩니다. 층을 옮기는 구체적인 절차는 자료에 없습니다.
 - 푸두는 일본 Nippon Otis Elevator의 Integrated Dispatch API와 클라우드로 연동해 다른 모델인 FlashBot의 층간 이동을 구현한 사례가 있습니다. 출처는 [Automated Warehouse 기사](https://www.automatedwarehouseonline.com/pudu-robotics-successfully-integrates-flashbot-with-elevators/)입니다. T300이 같은 방식인지는 확인하지 못했습니다.
+- 직접 조회해서 본 것(04 문서): 한 매장에 1층 맵과 3층 맵이 따로 등록돼 있었고, 3층 맵의 `elements`에 이름이 `Elevator`인 `gate` 요소가 있었습니다. 맵에 엘리베이터가 표시돼 있다는 근거이지만, 이 요소로 엘리베이터가 실제로 호출되는지는 확인하지 못했습니다. 1층 맵에도 같은 요소가 있는지는 현재 맵 하나만 조회되는 탓에 아직 못 봤습니다.
 - 푸두 오픈플랫폼 문서 사이드바에는 Robot task, Robot Scheduling, Control command 같은 항목이 있습니다. 본문은 아직 읽지 않았습니다.
 
 ## 가장 먼저 정할 것: 엘리베이터를 누가 부르는가
