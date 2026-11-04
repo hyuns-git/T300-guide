@@ -105,14 +105,16 @@ def make_headers(
     x_date: Optional[str] = None,
     accept: str = "application/json",
     content_type: str = "application/json",
+    method: str = "GET",
+    content_md5: str = "",
 ) -> Dict[str, str]:
-    """GET 요청용 헤더. 서명 문자열은 줄바꿈으로 이은 6개 항목이다.
+    """서명 헤더. 서명 문자열은 줄바꿈으로 이은 6개 항목이다.
 
-    x-date 줄, 메서드, Accept, Content-Type, Content-MD5(GET은 빈 값), 경로+쿼리.
+    x-date 줄, 메서드, Accept, Content-Type, Content-MD5(본문이 없으면 빈 값), 경로+쿼리.
     """
     x_date = x_date or formatdate(usegmt=True)
     signing_str = "\n".join(
-        ["x-date: " + x_date, "GET", accept, content_type, "", path_and_params]
+        ["x-date: " + x_date, method, accept, content_type, content_md5, path_and_params]
     )
     digest = hmac.new(
         app_secret.encode("utf-8"), signing_str.encode("utf-8"), hashlib.sha1

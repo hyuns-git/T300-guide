@@ -43,7 +43,7 @@ uvicorn app.main:app --reload
 
 ## 왜 GET만 있나
 
-이 서버에는 로봇을 움직이는 경로가 없습니다. 테스트 `test_no_route_can_move_the_robot`가 GET이 아닌 메서드가 생기면 실패하도록 막아 둡니다. 로봇을 움직이는 기능은 현장 승인 절차를 정한 뒤에 넣을 것이고, 그때 이 테스트를 의도적으로 고치게 됩니다.
+이 서버에는 로봇을 움직이는 경로가 없습니다. 테스트 `test_no_route_can_move_the_robot`가 GET이 아닌 메서드가 생기면 실패하도록 막아 둡니다. 다만 GET이라고 해서 항상 안전한 것은 아닙니다. 푸두의 충전기 복귀 호출(`/open-platform-service/v2/recharge`)은 GET인데 로봇을 움직입니다. 그래서 이 서버에는 그 호출을 넣지 않았고, 움직이는 명령은 확인 절차가 있는 `app/move.py`([07](07-move-robot.md))에만 있습니다.
 
 ## 코드에서 짚을 곳
 
