@@ -46,12 +46,12 @@ API_APP_SECRET=(발급받은 ApiAppSecret 값)
 python -m app.pudu health-check
 ```
 
-성공하면 `message`에 `Success`가 들어간 JSON이 나옵니다. 필드 구성은 서버 응답에 따라 조금 다를 수 있습니다.
+성공하면 `message`에 `Success`가 들어간 JSON이 나옵니다. 아래는 이 저장소의 코드로 실제 서버에서 받은 출력입니다(`trace_id` 값은 호출마다 다릅니다). 문장 부호 `！`가 전각 느낌표인 것은 서버가 그렇게 보낸 것입니다.
 
 ```
 {
   "message": "GetHealthCheck Success！request={}",
-  "data": null
+  "trace_id": "API...(호출마다 다른 값)"
 }
 ```
 
